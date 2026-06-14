@@ -23,6 +23,8 @@ def run():
     # restaurants = Restaurant.objects.order_by('date_opened')[:5]
     # restaurants = Restaurant.objects.order_by('date_opened')[2:5] #limit 3 offset 2
     # restaurants = Restaurant.objects.earliest('date_opened')
-    restaurants = Restaurant.objects.latest()
-    print(restaurants)
+    # restaurants = Restaurant.objects.latest()
+    ratings = Rating.objects.filter(restaurant__name__startswith='C')
+    sales = Sale.objects.filter(restaurant__restaurant_type=chinese)
+    print(sales)
     print(connection.queries)
